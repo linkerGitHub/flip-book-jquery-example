@@ -5,10 +5,14 @@ window.PDFJS_LOCALE = {
 };
 require('./src/flip-book');
 
-
+const pdfUrl = (new URL(document.location)).searchParams.get('pdfUrl')
 // Sample 0 {
 $('#container').FlipBook({
-  pdf: 'books/pdf/FoxitPdfSdk.pdf',
+  pdf: 'books/pdf/' + pdfUrl,
+  propertiesCallback: function(props) {
+    props.page.depth /= 4;
+    return props;
+  },
   template: {
     html: 'src/flip-book/templates/default-book-view.html',
     links: [
