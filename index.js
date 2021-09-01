@@ -18,12 +18,13 @@ $('#container').FlipBook({
       }
     ],
     styles: [
-      'node_modules/flip-book/css/short-black-book-view.css'
+      'node_modules/flip-book/css/short-white-book-view.css'
     ],
     links: [{
       rel: 'stylesheet',
       href: 'node_modules/flip-book/css/font-awesome.min.css'
     }],
+    script: 'node_modules/flip-book/js/default-book-view.js',
     sounds: {
       startFlip: 'node_modules/flip-book/sounds/start-flip.mp3',
       endFlip: 'node_modules/flip-book/sounds/end-flip.mp3'
@@ -31,7 +32,7 @@ $('#container').FlipBook({
   }
 });
 // }
-//
+
 // // Sample 1 {
 // function theKingIsBlackPageCallback(n) {
 //   return {
@@ -71,7 +72,7 @@ $('#container').FlipBook({
 //   }
 // });
 // // }
-//
+
 // // Sample 2 {
 // $('#container').FlipBook({
 //   pdf: 'books/pdf/CondoLiving.pdf',
