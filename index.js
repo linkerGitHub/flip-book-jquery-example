@@ -1,33 +1,33 @@
 import {$} from './src/libs'
 
 window.PDFJS_LOCALE = {
-  pdfJsWorker: 'node_modules/flip-book/js/pdf.worker.js'
+  pdfJsWorker: 'src/flip-book/js/pdf.worker.js'
 };
-require('flip-book');
+require('./src/flip-book');
 
 
 // Sample 0 {
 $('#container').FlipBook({
   pdf: 'books/pdf/FoxitPdfSdk.pdf',
   template: {
-    html: 'template.html',
+    html: 'src/flip-book/templates/default-book-view.html',
     links: [
       {
         rel: 'stylesheet',
-        href: 'node_modules/flip-book/css/font-awesome.min.css'
+        href: 'src/flip-book/css/font-awesome.min.css'
       }
     ],
     styles: [
-      'node_modules/flip-book/css/short-white-book-view.css'
+      'src/flip-book/css/short-white-book-view.css'
     ],
     links: [{
       rel: 'stylesheet',
-      href: 'node_modules/flip-book/css/font-awesome.min.css'
+      href: 'src/flip-book/css/font-awesome.min.css'
     }],
-    script: 'node_modules/flip-book/js/default-book-view.js',
+    script: 'src/flip-book/js/default-book-view.js',
     sounds: {
-      startFlip: 'node_modules/flip-book/sounds/start-flip.mp3',
-      endFlip: 'node_modules/flip-book/sounds/end-flip.mp3'
+      startFlip: 'src/flip-book/sounds/start-flip.mp3',
+      endFlip: 'src/flip-book/sounds/end-flip.mp3'
     }
   }
 });
@@ -50,24 +50,24 @@ $('#container').FlipBook({
 //     return props;
 //   },
 //   template: {
-//     html: 'node_modules/flip-book/templates/default-book-view.html',
+//     html: 'src/flip-book/templates/default-book-view.html',
 //     links: [
 //       {
 //         rel: 'stylesheet',
-//         href: 'node_modules/flip-book/css/font-awesome.min.css'
+//         href: 'src/flip-book/css/font-awesome.min.css'
 //       }
 //     ],
 //     styles: [
-//       'node_modules/flip-book/css/short-white-book-view.css'
+//       'src/flip-book/css/short-white-book-view.css'
 //     ],
 //     links: [{
 //       rel: 'stylesheet',
-//       href: 'node_modules/flip-book/css/font-awesome.min.css'
+//       href: 'src/flip-book/css/font-awesome.min.css'
 //     }],
-//     script: 'node_modules/flip-book/js/default-book-view.js',
+//     script: 'src/flip-book/js/default-book-view.js',
 //     sounds: {
-//       startFlip: 'node_modules/flip-book/sounds/start-flip.mp3',
-//       endFlip: 'node_modules/flip-book/sounds/end-flip.mp3'
+//       startFlip: 'src/flip-book/sounds/start-flip.mp3',
+//       endFlip: 'src/flip-book/sounds/end-flip.mp3'
 //     }
 //   }
 // });
@@ -77,21 +77,21 @@ $('#container').FlipBook({
 // $('#container').FlipBook({
 //   pdf: 'books/pdf/CondoLiving.pdf',
 //   template: {
-//     html: 'node_modules/flip-book/templates/default-book-view.html',
+//     html: 'src/flip-book/templates/default-book-view.html',
 //     links: [
 //       {
 //         rel: 'stylesheet',
-//         href: 'node_modules/flip-book/css/font-awesome.min.css'
+//         href: 'src/flip-book/css/font-awesome.min.css'
 //       }
 //     ],
 //     styles: [
-//       'node_modules/flip-book/css/white-book-view.css'
+//       'src/flip-book/css/white-book-view.css'
 //     ],
 //     links: [{
 //       rel: 'stylesheet',
-//       href: 'node_modules/flip-book/css/font-awesome.min.css'
+//       href: 'src/flip-book/css/font-awesome.min.css'
 //     }],
-//     script: 'node_modules/flip-book/js/default-book-view.js'
+//     script: 'src/flip-book/js/default-book-view.js'
 //   }
 // });
 // // }
@@ -105,21 +105,21 @@ $('#container').FlipBook({
 //     return props;
 //   },
 //   template: {
-//     html: 'node_modules/flip-book/templates/default-book-view.html',
+//     html: 'src/flip-book/templates/default-book-view.html',
 //     links: [
 //       {
 //         rel: 'stylesheet',
-//         href: 'node_modules/flip-book/css/font-awesome.min.css'
+//         href: 'src/flip-book/css/font-awesome.min.css'
 //       }
 //     ],
 //     styles: [
-//       'node_modules/flip-book/css/short-black-book-view.css'
+//       'src/flip-book/css/short-black-book-view.css'
 //     ],
 //     links: [{
 //       rel: 'stylesheet',
-//       href: 'node_modules/flip-book/css/font-awesome.min.css'
+//       href: 'src/flip-book/css/font-awesome.min.css'
 //     }],
-//     script: 'node_modules/flip-book/js/default-book-view.js'
+//     script: 'src/flip-book/js/default-book-view.js'
 //   }
 // });
 // // }
@@ -142,21 +142,21 @@ $('#container').FlipBook({
 //     return props;
 //   },
 //   template: {
-//     html: 'node_modules/flip-book/templates/default-book-view.html',
+//     html: 'src/flip-book/templates/default-book-view.html',
 //     links: [
 //       {
 //         rel: 'stylesheet',
-//         href: 'node_modules/flip-book/css/font-awesome.min.css'
+//         href: 'src/flip-book/css/font-awesome.min.css'
 //       }
 //     ],
 //     styles: [
-//       'node_modules/flip-book/css/black-book-view.css'
+//       'src/flip-book/css/black-book-view.css'
 //     ],
 //     links: [{
 //       rel: 'stylesheet',
-//       href: 'node_modules/flip-book/css/font-awesome.min.css'
+//       href: 'src/flip-book/css/font-awesome.min.css'
 //     }],
-//     script: 'node_modules/flip-book/js/default-book-view.js'
+//     script: 'src/flip-book/js/default-book-view.js'
 //   }
 // });
 // // }
