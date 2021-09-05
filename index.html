@@ -1,37 +1,276 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Debugging</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="node_modules/flip-book/css/font-awesome.min.css">
-  </head>
-  <body>
-
-    <style type="text/css">
-      body {
-        background-color: #333;
-        margin: 0;
-        padding: 0;
-      }
-      .container {
-        height: 95vh;
-        width: 95%;
-        margin: 20px auto;
-      }
-      .fullscreen {
-        background-color: #333;
-      }
-    </style>
-
-    <div class="container" id="container">
-
+<html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>成都市金牛区数字方志馆</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📖</text></svg>">
+  <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.0/swiper-bundle.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="content-box">
+    <div class="header">
+      <div class="site-name">
+        <img class="site-logo" src="./resource/logo.png" />
+        <span class="site-name-text">成都市金牛区数字方志馆</span>
+      </div>
     </div>
+    <hr />
+    <div class="pic-banner">
+      <div
+        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+        class="swiper mySwiper"
+      >
+        <div class="swiper-wrapper" id="banner-img-box">
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div style="overflow: hidden;">
+      <div class="nt-block">
+        <img src="./resource/nt_preview.jpg"/>
+        <div class="nt-block-text">
+          <a href="http://nt_cdjndfz.idxstudio.win/#/index">部分图像资源由牛图支撑</a>
+        </div>
+      </div>
+      <div style="overflow: hidden;">
+        <h3>📖 年鉴</h3>
+        <div class="book-list" id="books"></div>
+      </div>
+    </div>
+    <hr />
+    <div class="footer">
+      <p data-v-bab44e8a="">版权所有Copyright ©2020-2021 成都市金牛区地方志编纂委员会办公室</p><p data-v-bab44e8a="">邮编：610031 电话：028-87769972 成都市公安局网监中心蜀ICP备11005816号-4</p>
+    </div>
+  </div>
+  <style>
+    .nt-block {
+      width: 240px;
+      overflow: hidden;
+      position: relative;
+      float: left;
+      margin-right: 40px;
+      margin-top: 24px;
+    }
+    .nt-block > img {
+      width: 100%;
+    }
+    .nt-block > .nt-block-text {
+      color: #fff;
+      position: absolute;
+      bottom: 0;
+      font-size: 12px;
+      padding: 8px 4px;
+      background-color: #5d5d5d;
+      width: 100%;
+      text-align: center;
+    }
+    .nt-block > .nt-block-text > a {
+      color: #fff;
+    }
+    .content-box {
+      position: relative;
+      width: 1140px;
+      margin: auto;
+    }
+    .site-name-text {
+      font-size: 22px;
+      line-height: 45px;
+    }
+    .site-logo {
+      height: 45px;
+      vertical-align: bottom;
+    }
+    .book-list {
+      overflow: hidden;
+    }
+    .pic-banner {
+      overflow: hidden;
+      height: 360px;
+      position: relative;
+    }
+    .pic-banner-text {
+      position: absolute;
+      padding: 10px;
+      background-color: #00000070;
+      border-radius: 6px;
+      font-size: 24px;
+      bottom: 0;
+      width: 100%;
+      left: 0;
+      text-align: center;
+    }
+    .pic-banner-text > a {
+      color: #fff;
+      text-decoration: none;
+    }
+    .book-item-block {
+      overflow: hidden;
+      height: 200px;
+      width: 360px;
+      margin: 0 70px 30px 0;
+      float: left;
+    }
+    .book-cover {
+      float: left;
+      margin-right: 20px;
+    }
+    .book-cover > img {
+      width: 140px;
+      height: 190px;
+      object-fit: cover;
+    }
+    .book-name {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .book-url {
+      margin-top: 20px;
+    }
+    .footer {
+      box-shadow: none!important;
+      color: #5d5d5d;
+      font-size: 12px;
+      text-align: center;
+    }
+    .footer > p {
+      margin: 4px;
+    }
 
-    <script src="node_modules/flip-book/js/jquery.min.js"></script>
-    <script src="node_modules/flip-book/js/html2canvas.min.js"></script>
-    <script src="node_modules/flip-book/js/three.min.js"></script>
-    <script src="node_modules/flip-book/js/pdf.min.js"></script>
+  </style>
+  <style>
 
-    <script src="bundle.js"></script>
-  </body>
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: 360px;
+    object-fit: cover;
+  }
+  </style>
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/6.8.0/swiper-bundle.min.js"></script>
+  <script>
+  const bannerData = [
+    {
+      "id": 10,
+      "cfg_key": "露天音乐广场",
+      "cfg_val": "5fb372b94d895251bc79ef04",
+      "created_at": "2020-11-10T14:16:33.000000Z",
+      "updated_at": "2020-11-17T06:50:33.000000Z",
+      "cfg_type": "back_pic",
+      "item_status": 1
+    },
+    {
+      "id": 11,
+      "cfg_key": "府河夜景",
+      "cfg_val": "5fb375eb0ac5267279682da7",
+      "created_at": "2020-11-13T08:23:09.000000Z",
+      "updated_at": "2020-11-17T07:04:11.000000Z",
+      "cfg_type": "back_pic",
+      "item_status": 1
+    },
+    {
+      "id": 13,
+      "cfg_key": "茶店子新貌",
+      "cfg_val": "5fb3731334449164e77fb615",
+      "created_at": "2020-11-13T08:23:37.000000Z",
+      "updated_at": "2020-11-17T06:52:03.000000Z",
+      "cfg_type": "back_pic",
+      "item_status": 1
+    },
+    {
+      "id": 14,
+      "cfg_key": "特色街区枣子巷",
+      "cfg_val": "5fb3743534449164e77fb62d",
+      "created_at": "2020-11-17T06:56:53.000000Z",
+      "updated_at": "2020-11-17T06:56:53.000000Z",
+      "cfg_type": "back_pic",
+      "item_status": 1
+    }
+  ]
+  $('#banner-img-box').append(bannerData.map(banner => {
+    return `<div class="swiper-slide">
+      <div class="pic-banner-text"><a href="http://nt_cdjndfz.idxstudio.win/#/index">${banner.cfg_key}</a></div>
+      <img class="swiper-lazy" data-src="http://nt_cdjndfz.idxstudio.win/api/retrieve-file/${banner.cfg_val}?file_scope=public" />
+    </div>`
+  }))
+
+
+  const pdfList = [
+    '成都市金牛区志（1991-2005）',
+    '金牛年鉴2003',
+    '金牛年鉴2004',
+    '金牛年鉴2005',
+    '金牛年鉴2006',
+    '金牛年鉴2007',
+    '金牛年鉴2008',
+    '金牛年鉴2009',
+    '金牛年鉴2010',
+    '金牛年鉴2011',
+    '金牛年鉴2012',
+    '金牛年鉴2013',
+    '金牛年鉴2014',
+    '金牛年鉴2015',
+    '金牛年鉴2016',
+    '金牛年鉴2017',
+    '金牛年鉴2018',
+    '金牛年鉴2019',
+    '金牛年鉴2020'
+  ]
+
+  $('#books').append(pdfList.map(p => {
+    return `<div class="book-item-block">
+      <div class="book-cover">
+        <img src="./resource/${p}.jpeg"/>
+      </div>
+      <div class="book-name">
+        ${p}
+      </div>
+      <div class="book-url">
+        <a target="_blank" href="ebook.html?pdfUrl=${p}.pdf">在线阅读</a>
+      </div>
+    </div>`
+  }))
+
+  </script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      lazy: true,
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: true,
+      }
+    });
+    swiper.on('click', function (s, e) {
+      location.href = 'http://nt_cdjndfz.idxstudio.win/#/index'
+    })
+  </script>
+</body>
 </html>
