@@ -10,7 +10,9 @@ const pdfUrl = (new URL(document.location)).searchParams.get('pdfUrl')
 $('#container').FlipBook({
   pdf: 'books/pdf/' + pdfUrl,
   propertiesCallback: function(props) {
+    console.log(props)
     props.page.depth /= 4;
+    props.preloadPages = 3;
     return props;
   },
   template: {
