@@ -336,7 +336,7 @@
   $('#books').append(pdfList.map(p => {
     let targetUrl = `ebook.html?pdfUrl=${p}.pdf`
     if(window.innerWidth < 600) {
-      targetUrl = `books/pdf/${p}.pdf`
+      targetUrl = `mobile-viewer/viewer.html?pdfUrl=${p}.pdf`
     }
     return `<div class="book-item-block">
       <div class="book-cover">
