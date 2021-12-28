@@ -22,7 +22,7 @@ if (!pdfjsLib.getDocument || !pdfjsViewer.PDFViewer) {
 
 const USE_ONLY_CSS_ZOOM = true;
 const TEXT_LAYER_MODE = 0; // DISABLE
-const MAX_IMAGE_SIZE = 1024 * 1024;
+const MAX_IMAGE_SIZE = 1024 * 1024 * 30;
 const CMAP_URL = "../node_modules/pdfjs-dist/cmaps/";
 const CMAP_PACKED = true;
 
